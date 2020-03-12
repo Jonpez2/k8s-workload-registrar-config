@@ -1,0 +1,3 @@
+load(":gen-targets.bzl", "gen_targets")
+
+gen_targets()

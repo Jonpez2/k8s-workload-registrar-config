@@ -1,0 +1,22 @@
+# Validating Webhook Configuration for the K8S Workload Registrar
+#
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: k8s-workload-registrar-webhook
+webhooks:
+  - name: k8s-workload-registrar.spire.svc
+    clientConfig:
+      service:
+        name: k8s-workload-registrar
+        namespace: spire
+        path: "/validate"
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJnRENDQVNhZ0F3SUJBZ0lJUStJSGw4QVNTZk13Q2dZSUtvWkl6ajBFQXdJd0pERWlNQ0FHQTFVRUF4TVoKU3poVElGZFBVa3RNVDBGRUlGSkZSMGxUVkZKQlVpQkRRVEFlRncweU1EQXpNVEF4TURFMk1EVmFGdzB5TVRBegpNVEF4TURFMk1EVmFNQ1F4SWpBZ0JnTlZCQU1UR1VzNFV5QlhUMUpMVEU5QlJDQlNSVWRKVTFSU1FWSWdRMEV3CldUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUJCd05DQUFTSFZCY09hb05QY2ZvczJHSlpXakdpc3htOGFmZkUKTFptakRlZEliaVZ1dlphNkI5VW90QzNwajRkR2hpWGx6dEVsK3ZZaGJybktxWFV6QysrbjRTbklvMEl3UURBTwpCZ05WSFE4QkFmOEVCQU1DQVlZd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVXNLYU1LcjVBCkFlTnRhTUI5d3NLNnlVOFlkK3N3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQVBxcGFrRzFQK1JkaVdHdlhGeVAKSG8vNnNodkZUUHFqRHVxbHRBS0h6YnB5QWlBWHh1bGVoaEdFVGlJdkYvY1hsRTF5Z2RIbm92dk1YOFhCYmptagpJVE1DREE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    admissionReviewVersions:
+      - v1beta1
+    rules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["*"]
+        resources: ["pods"]
+        scope: "Namespaced"

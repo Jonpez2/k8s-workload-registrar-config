@@ -1,0 +1,36 @@
+# ConfigMap containing the K8S Workload Registrar server certificate and
+# CA bundle used to verify the client certificate presented by the API server.
+#
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-workload-registrar-certs
+  namespace: spire
+data:
+  server-cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIB5TCCAYygAwIBAgIILv8vuDzV+/EwCgYIKoZIzj0EAwIwJDEiMCAGA1UEAxMZ
+    SzhTIFdPUktMT0FEIFJFR0lTVFJBUiBDQTAeFw0yMDAzMTAxMDE2MDVaFw0yMTAz
+    MTAxMDE2MDVaMCgxJjAkBgNVBAMTHUs4UyBXT1JLTE9BRCBSRUdJU1RSQVIgU0VS
+    VkVSMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHfvvPP/YqhMYUzV41PcRdoxa
+    quZ2hh29Cmn0asQ04Yh3YDLebkRGO1ikEyCzSXHwB9WDrwkBUavYk25/myhKq6OB
+    ozCBoDAOBgNVHQ8BAf8EBAMCA6gwEwYDVR0lBAwwCgYIKwYBBQUHAwEwDAYDVR0T
+    AQH/BAIwADAdBgNVHQ4EFgQUwGnKtgTbEZhV3YnQTjLG78+JR/swHwYDVR0jBBgw
+    FoAUsKaMKr5AAeNtaMB9wsK6yU8Yd+swKwYDVR0RBCQwIoIgazhzLXdvcmtsb2Fk
+    LXJlZ2lzdHJhci5zcGlyZS5zdmMwCgYIKoZIzj0EAwIDRwAwRAIgCJdLWtsZACDI
+    H4DXW5O0EhSHavKVlLcR8Dc4v7hv5HsCIFIv8cpxmzZicHP6vbP3QpMHaw2N/jR7
+    C7e7OHBJF6rS
+    -----END CERTIFICATE-----
+
+  cacert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIBgDCCASagAwIBAgIIQ+IHl8ASSfMwCgYIKoZIzj0EAwIwJDEiMCAGA1UEAxMZ
+    SzhTIFdPUktMT0FEIFJFR0lTVFJBUiBDQTAeFw0yMDAzMTAxMDE2MDVaFw0yMTAz
+    MTAxMDE2MDVaMCQxIjAgBgNVBAMTGUs4UyBXT1JLTE9BRCBSRUdJU1RSQVIgQ0Ew
+    WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASHVBcOaoNPcfos2GJZWjGisxm8affE
+    LZmjDedIbiVuvZa6B9UotC3pj4dGhiXlztEl+vYhbrnKqXUzC++n4SnIo0IwQDAO
+    BgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUsKaMKr5A
+    AeNtaMB9wsK6yU8Yd+swCgYIKoZIzj0EAwIDSAAwRQIhAPqpakG1P+RdiWGvXFyP
+    Ho/6shvFTPqjDuqltAKHzbpyAiAXxulehhGETiIvF/cXlE1ygdHnovvMX8XBbjmj
+    ITMCDA==
+    -----END CERTIFICATE-----
